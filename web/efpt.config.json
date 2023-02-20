@@ -1,0 +1,80 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "MolinoContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Models",
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "web",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Contrato]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Direccion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Empleado]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Grano]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IndicadorCalidad]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Localidad]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Pais]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Proveedor]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Provincia]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TipoGrano]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ValorIndicadorContrato]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-LB8I6K6.Molino",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

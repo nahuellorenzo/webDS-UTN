@@ -1,0 +1,101 @@
+﻿@model web.Models.Contrato
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Contrato</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Numero" class="control-label">Numero</label>
+                    <input asp-for="Numero" class="form-control" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check position-absolute start-50 translate-middle-x">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Cumplido" /> @Html.DisplayNameFor(model => model.Cumplido)
+                    </label>
+                </div>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="FechaEmision" class="control-label">Fecha Emision</label>
+                    <input asp-for="FechaEmision" class="form-control" />
+                    <span asp-validation-for="FechaEmision" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="FechaLimite" class="control-label">Fecha Limite</label>
+                    <input asp-for="FechaLimite" class="form-control" />
+                    <span asp-validation-for="FechaLimite" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MedidoEnToneladas" /> @Html.DisplayNameFor(model => model.MedidoEnToneladas)
+                </label>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="CantidadCamiones" class="control-label">Cantidad de Camiones</label>
+                    <input asp-for="CantidadCamiones" class="form-control" />
+                    <span asp-validation-for="CantidadCamiones" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="CantidadEnToneladas" class="control-label">Cantidad en Toneladas</label>
+                    <input asp-for="CantidadEnToneladas" class="form-control" />
+                    <span asp-validation-for="CantidadEnToneladas" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="PrecioTonelada" class="control-label">Precio Tonelada</label>
+                    <input asp-for="PrecioTonelada" class="form-control" />
+                    <span asp-validation-for="PrecioTonelada" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="MetodoDePago" class="control-label">Metodo de pago</label>
+                    <input asp-for="MetodoDePago" class="form-control" />
+                    <span asp-validation-for="MetodoDePago" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group d-block">
+                <label asp-for="GranoId" class="control-label">Grano</label>
+                <select asp-for="GranoId" class="form-select" style="width:658px" asp-items="ViewBag.GranoId"></select>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="ProveedorId" class="control-label">Proveedor</label>
+                    <select asp-for="ProveedorId" class="form-select" style="width:208px" asp-items="ViewBag.ProveedorId"></select>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="EmpleadoId" class="control-label">Empleado</label>
+                    <select asp-for="EmpleadoId" class="form-select" style="width:208px" asp-items="ViewBag.EmpleadoId"></select>
+                </div>
+            </div>
+            <div class="form-inline">
+            @*<form asp-action="Save">
+                <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Guardar" class="btn btn-success" style="color:white;display:inline-block" />
+                </form>*@
+                <input type="submit" value="Guardar" class="btn btn-success form-inline mt-3" style="color:white"/>
+                <form asp-action="Index" >
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Cancelar" class="btn btn-primary form-inline mt-3" style="color:white" />
+                </form>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

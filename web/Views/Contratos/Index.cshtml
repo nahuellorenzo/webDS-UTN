@@ -1,0 +1,80 @@
+﻿@model web.ViewModels.ContratoViewModel
+<script C:\Users\User\Desktop\AGUS\Trabajo Grupal\E5\Aplicación\webMolino\web\wwwroot\js\site.js></script>
+@{
+    ViewData["Title"] = "Contratos";
+}
+
+<h1>Contratos</h1>
+
+<form asp-action="Index" class="form-inline mt-3 mb-4">
+
+    <div class="form-group row">
+        <div class="col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+            <input asp-for="Filtro" class="form-control" />
+        </div>
+        <div class="col-1">
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        </div>
+            <div class="col-4">
+        </div>
+        <div class="col-1">
+            <a class="btn btn-primary" href="/Contratos/Create">Crear</a>
+        </div>
+    </div>
+</form>
+
+<div id="results-container">
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Número
+                </th>
+                <th>
+                    Fecha emisión
+                </th>
+                <th>
+                    Fecha límite
+                </th>
+                <th>
+                    Precio por tonelada
+                </th>
+                <th>
+                    Método de pago
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Contratos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaEmision)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaLimite)
+                    </td>
+                    <td>
+                        <div class="d-inline-flex">
+                            <p>$</p>@Html.DisplayFor(modelItem => item.PrecioTonelada)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetodoDePago)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

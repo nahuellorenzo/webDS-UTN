@@ -1,0 +1,176 @@
+﻿@model web.ViewModels.ContratoCrearViewModel
+
+@{
+
+}
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Contrato</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Contrato.Numero" class="control-label">Numero</label>
+                    <input asp-for="Contrato.Numero" class="form-control" />
+                    <span asp-validation-for="Contrato.Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check position-absolute start-50 translate-middle-x">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Contrato.Cumplido" /> @Html.DisplayNameFor(model => model.Contrato.Cumplido)
+                    </label>
+                </div>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Contrato.FechaEmision" class="control-label">Fecha Emision</label>
+                    <input asp-for="Contrato.FechaEmision" class="form-control" />
+                    <span asp-validation-for="Contrato.FechaEmision" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="Contrato.FechaLimite" class="control-label">Fecha Limite</label>
+                    <input asp-for="Contrato.FechaLimite" class="form-control" />
+                    <span asp-validation-for="Contrato.FechaLimite" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Contrato.MedidoEnToneladas" /> @Html.DisplayNameFor(model => model.Contrato.MedidoEnToneladas)
+                </label>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Contrato.CantidadCamiones" class="control-label">Cantidad de Camiones</label>
+                    <input asp-for="Contrato.CantidadCamiones" class="form-control" />
+                    <span asp-validation-for="Contrato.CantidadCamiones" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="Contrato.CantidadEnToneladas" class="control-label">Cantidad en Toneladas</label>
+                    <input asp-for="Contrato.CantidadEnToneladas" class="form-control" />
+                    <span asp-validation-for="Contrato.CantidadEnToneladas" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Contrato.PrecioTonelada" class="control-label">Precio Tonelada</label>
+                    <input asp-for="Contrato.PrecioTonelada" class="form-control" />
+                    <span asp-validation-for="Contrato.PrecioTonelada" class="text-danger"></span>
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="Contrato.MetodoDePago" class="control-label">Metodo de pago</label>
+                    <input asp-for="Contrato.MetodoDePago" class="form-control" />
+                    <span asp-validation-for="Contrato.MetodoDePago" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group d-block">
+                <label asp-for="Contrato.GranoId" class="control-label">Grano</label>
+                <select asp-for="Contrato.GranoId" class="form-select" style="width:658px" asp-items="ViewBag.GranoId"></select>
+            </div>
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+                <div class="form-group">
+                    <label asp-for="Contrato.ProveedorId" class="control-label">Proveedor</label>
+                    <select asp-for="Contrato.ProveedorId" class="form-select" style="width:208px" asp-items="ViewBag.ProveedorId"></select>
+
+                </div>
+                <div class="form-group position-absolute start-50 translate-middle-x">
+                    <label asp-for="Contrato.EmpleadoId" class="control-label">Empleado</label>
+                    <select asp-for="Contrato.EmpleadoId" class="form-select" style="width:208px" asp-items="ViewBag.EmpleadoId"></select>
+                </div>
+            </div>
+
+            <div class="d-inline-flex mt-3 mb-4 form-group">
+            <div class="card" style="width:700px;">
+                <div class="card-header">
+                    Indicadores
+                </div>
+                <div class="card-body">
+                    <div class="align-items-end row mb-4 mt-4">
+                        <div class="col-sm-6">
+                            <label class="form-label">Nombre</label>
+                                <select id="IndicadorSeleccionado" class="form-select" asp-items="Model.IndicadoresNombres">
+                                        <option>Seleccione un indicador</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="form-label">Valor</label>
+                            <input class="form-control form-control-sm" type="text" id="txtValor">
+                        </div>
+                        <div class="col-sm-3">
+                            @*<button class="btn btn-success btn-sm" onclick="agregarElementos() id="btnAgregar">Agregar</button>*@
+                            <button type="button" class="btn btn-success btn-sm" id="btnAgregar" onclick="guardar()">Agregar</button>
+                            @*<button class="btn btn-primary btn-sm" id="btnTerminar">Terminar</button>*@
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-sm" id="tbIndicadores">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+            <div class="form-group inline-group mt-3 mb-4">
+                <input type="submit" value="Guardar" id="btnTerminar" class="btn btn-success" />
+                <a asp-action="Index">Cancelar</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+    @section Scripts {
+        @{
+        <script src="js/jquery-3.5.1.min.js"></script>
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+        <script>
+
+        $("#btnAgregar").on("click", function () {
+            $("#tbIndicadores tbody").append(
+                $("<tr>").append(
+                    $("<td>").text($("#IndicadorSeleccionado").val()),
+                    $("<td>").text($("#txtValor").val()),
+                )
+            )
+            $("#txtValor").val("");
+        })
+
+        $("#btnTerminar").on("click", function () {
+            
+            var oIndicadores = []
+            
+            //Recorro los tr de la tabla y le asigno sus valores a los elementos Indicadores
+            $("#tbIndicadores > tbody > tr").each(function(i,tr){
+                oIndicadores.push(
+                    {
+                        Nombre: $(tr).find('td:eq(0)').text(),
+                        Valor: $(tr).find('td:eq(1)').text(),
+                    }
+                )
+            })
+
+            //Creo una instancia de ContratoCrearViewModel
+            var oContratoCrearViewModel = {
+                oIndicadores: oIndicadores
+            }
+        })
+
+        </script>
+    }
