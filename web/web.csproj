@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Contratos\Create.cshtml~RFf86d2cf.TMP" />
     <None Remove="Views\Contratos\TextFile.php" />
   </ItemGroup>
 

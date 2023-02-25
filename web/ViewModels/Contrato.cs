@@ -15,6 +15,14 @@ namespace web.ViewModels
         public List<Indicador> Indicadores { get; set; }
         public SelectList IndicadoresNombres { get; set; }
 
+        public List<IndicadorID> IndicadorID { get; set; }
+
+    }
+
+    public class IndicadorID
+    {
+        public int ID { get; set; }
+        public string Nombre { get; set; }
     }
 
     public class Indicador

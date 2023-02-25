@@ -16,3 +16,23 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+.claseTd {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cumplido {
+    padding: 2rem 0 0 5.5rem;
+}
+
+@media (max-width: 576px) {
+    .cumplido {
+        padding: 2rem;
+    }
+
+    .desaparecer {
+        display: none;
+    }
+}
